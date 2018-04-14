@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin:0;padding:0;
+	}
+	ul{list-style: none;}
+	.top,.dian,.jia,.fu,.mei,.bottom{
+		width: 1210px;
+		margin: 0 auto;
+	}
+	.subnav
+	{
+		position: fixed;
+		width: 38px;
+		height: 200px;
+		top:300px;
+		left:50%;
+		margin-left:605px;
+		display: none;
+	}
+	.subnav li,.back{
+		height: 36px;
+		border:1px solid #DEDEDE;
+		margin-bottom: 5px;
+		font-size:0;
+		background: url(img/bg.png) no-repeat;
+	}
+	.subnav li:nth-child(1) {
+		background-position: 0px 0px;
+	}
+	.subnav li:nth-child(2) {
+		background-position: 0px -55px; 
+	}
+	.subnav li:nth-child(3) {
+		background-position: 0px -110px; 
+	}
+	.subnav li:nth-child(4) {
+		background-position: 0px -165px; 
+	}
+	.subnav li:hover,.subnav li.current,.back
+	{
+		border:1px solid #ED5759;
+		background: #FDEEEE;   /* 只有冲突的时候才会出现层叠 */
+		/* 背景颜色 背景图片 背景位置 背景平铺  背景固定 */
+		/* css 层叠样式表 */
+		font-size:12px;
+		color: #ED5759;
+		padding-left: 6px;
+		padding-top: 2px;
+		height: 34px;
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	<div class="top">
+		<img src="img/top1.png" alt="" />
+	</div>
+	<div class="jd jia">
+			<img src="img/jia.png" alt="" />
+		</div>
+	<div class="jd dian">
+	    <img src="img/dian.png" alt="" />
+	</div>
+	<div class="jd fu">
+		<img src="img/fu.png" alt="" />
+	</div>
+	<div class="jd mei">
+		<img src="img/mei.png" alt="" />
+	</div>
+	<div class="bottom">
+		<img src="img/bottom.png" alt="" />
+	</div>
+	<!-- 侧边栏 -->
+	<div class="subnav">
+		<ul>
+			<li>家电通讯</li>
+			<li>电脑数码</li>
+			<li>服饰精品</li>
+			<li>美容珠宝</li>
+		</ul>
+		<div class="back">返回</div>
+
+	</div>
+	<script src="jquery-1.12.4.js"></script>
+	<script>
+		// 1 滚动的时候，判断滚动的距离 > 0 显示侧边导航   
+		//  滚动的距离== 0 隐藏侧边导航
+		$(window).scroll(function () {
+			// 页面滚动出去的距离
+			var scrollTop = $(window).scrollTop();
+			if (scrollTop > 0) {
+				$('.subnav').show();
+			} else {
+				$('.subnav').hide();
+			}
+
+			// 2 判断页面滚动出去的距离，是否 >= 对应的 楼层 在页面中的位置
+			//		侧边栏对应的li 高亮显示，其它li取消高亮显示
+
+			// 4 楼
+			if (scrollTop >= $('.mei').offset().top) {
+				// 让侧边栏对应的第一个li高亮
+				$('.subnav li:eq(3)').addClass('current').siblings().removeClass('current');
+			// 3楼
+			}else if(scrollTop >= $('.fu').offset().top ){
+				$('.subnav li:eq(2)').addClass('current').siblings().removeClass('current');
+			}else if(scrollTop >= $('.dian').offset().top){
+				$('.subnav li:eq(1)').addClass('current').siblings().removeClass('current');
+			}else if(scrollTop >= $('.jia').offset().top){
+				$('.subnav li:eq(0)').addClass('current').siblings().removeClass('current');
+			}else{
+				$('.subnav li').remove('current');
+			}
+		});
+
+//		// 3 点击侧边栏的li的时候，动画的方式滚动到对应的楼层
+//		//		页面滚动 对应楼层 在页面中的位置
+//		// 1楼
+//		$('.subnav li:eq(0)').click(function () {
+//			$('body,html').animate({
+//				scrollTop: $('.jia').offset().top
+//			})
+//		});
+//		// 2楼
+//		$('.subnav li:eq(1)').click(function () {
+//			$('body,html').animate({
+//				scrollTop: $('.dian').offset().top
+//			})
+//		});
+//
+//		// 4 回到顶部
+//		$('.back').click(function () {
+//			$('body,html').animate({
+//				scrollTop: 0
+//			})
+//		});
+
+//		点击侧边栏跳到对应的地方--页面滚动到对应楼层，在页面中的位置
+		$('.subnav li:eq(0)').click(function(){
+			$('html, body').animate({
+				scrollTop : $('.jia').offset().top
+			})
+		})
+		$('.subnav li:eq(1)').click(function () {
+			$('html, body').animate({
+				scrollTop : $('.dian').offset().top
+			})
+		})
+		$('.subnav li:eq(2)').click(function(){
+			$('html,body').animate({
+				scrollTop : $('.fu').offset().top
+			})
+		})
+		$('.subnav li:eq(3)').click(function () {
+			$('html, body').animate({
+				scrollTop: $('.mei').offset().top
+			})
+		})
+//		回到顶部
+		$('.back').click(function () {
+			$('html, body').animate({
+				scrollTop:0
+			})
+		})
+		
+
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 410px;
+      margin: 100px auto 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    td a.get {
+      text-decoration: none;
+    }
+
+    a.del:hover {
+      text-decoration: underline;
+    }
+
+    tbody tr {
+      background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+
+    .btnAdd {
+      width: 110px;
+      height: 30px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .form-item {
+      height: 100%;
+      position: relative;
+      padding-left: 100px;
+      padding-right: 20px;
+      margin-bottom: 34px;
+      line-height: 36px;
+    }
+
+    .form-item>.lb {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 100px;
+      text-align: right;
+    }
+
+    .form-item>.txt {
+      width: 300px;
+      height: 32px;
+    }
+
+    .mask {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      opacity: 0.6;
+      display: none;
+    }
+
+    #j_hideFormAdd {
+      width: 22px;
+      height: 22px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 22px;
+      font-size: 18px;
+    }
+
+    #j_hideFormAdd:hover {
+      background-color: skyblue;
+    }
+
+    .form-add {
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      margin-left: -197px;
+      padding-bottom: 20px;
+      background: #fff;
+      display: none;
+    }
+
+    .form-add-title {
+      background-color: #f7f7f7;
+      border-width: 1px 1px 0 1px;
+      border-bottom: 0;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .form-add-title span {
+      width: auto;
+      height: 18px;
+      font-size: 16px;
+      font-family: 宋体;
+      font-weight: bold;
+      color: rgb(102, 102, 102);
+      text-indent: 12px;
+      padding: 8px 0px 10px;
+      margin-right: 10px;
+      display: block;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .form-add-title div {
+      width: 16px;
+      height: 20px;
+      position: absolute;
+      right: 10px;
+      top: 6px;
+      font-size: 30px;
+      line-height: 16px;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      text-align: center;
+    }
+
+    .form-submit input {
+      width: 170px;
+      height: 32px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--按钮和表单-->
+  <div class="wrap">
+    <div>
+      <input type="button" value="添加数据" id="j_btnAddData" class="btnAdd" />
+      <input type="button" value="全部删除" id="j_btnAddData1" class="btnAdd" />
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>课程名称</th>
+          <th>所属学院</th>
+          <th>已学会</th>
+        </tr>
+      </thead>
+      <tbody id="j_tb">
+        <tr>
+          <td>JavaScript</td>
+          <td>传智播客-前端与移动开发学院</td>
+          <td>
+            <a href="javascrip:;" class="get">delete</a>
+          </td>
+        </tr>
+        <tr>
+          <td>css</td>
+          <td>传智播客-前端与移动开发学院</td>
+          <td>
+            <a href="javascrip:;" class="get">delete</a>
+          </td>
+        </tr>
+        <tr>
+          <td>html</td>
+          <td>传智播客-前端与移动开发学院</td>
+          <td>
+            <a href="javascrip:;" class="get">delete</a>
+          </td>
+        </tr>
+        <tr>
+          <td>jQuery</td>
+          <td>传智播客-前端与移动开发学院</td>
+          <td>
+            <a href="javascrip:;" class="get">delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--遮罩层-->
+  <div id="j_mask" class="mask"></div>
+  <!--添加数据的表单-->
+  <div id="j_formAdd" class="form-add">
+    <div class="form-add-title">
+      <span>添加数据</span>
+
+      <div id="j_hideFormAdd">×</div>
+    </div>
+    <div class="form-item">
+      <label class="lb" for="j_txtLesson">课程名称：</label>
+      <input class="txt" type="text" id="j_txtLesson" placeholder="请输入课程名称">
+    </div>
+    <div class="form-item">
+      <label class="lb" for="j_txtBelSch">所属学院：</label>
+      <input class="txt" type="text" id="j_txtBelSch" value="传智播客-前端与移动开发学院">
+    </div>
+    <div class="form-submit">
+      <input type="button" value="添加" id="j_btnAdd">
+    </div>
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+//    // 1 点击按钮删除对应行
+//    $('.get').click(function () {
+//      $(this).parent().parent().remove();
+//    });
+//
+//    // 2 点击添加按钮，显示遮盖层和添加数据的窗口
+//    $('#j_btnAddData').click(function () {
+//      // 显示遮盖层
+//      $('#j_mask').show();
+//      // 显示添加数据的窗口
+//      $('#j_formAdd').show();
+//    });
+//
+//    // 3 点击x 关闭遮盖层和添加数据的窗口
+//    $('#j_hideFormAdd').click(function () {
+//      // 隐藏遮盖层
+//      $('#j_mask').hide();
+//      // 隐藏添加数据的窗口
+//      $('#j_formAdd').hide();
+//    });
+//
+//    // 4 点击添加按钮
+//    // 4.1 获取文本框的数据
+//    // 4.2 动态创建tr
+//    // 4.3 给新增的删除按钮注册事件
+//    // 4.4 把新增行添加到tbody中
+//    $('#j_btnAdd').click(function () {
+//      // 4.1 获取文本框的数据
+//      // 课程
+//      var kc = $('#j_txtLesson').val();
+//      // 学院
+//      var xy = $('#j_txtBelSch').val();
+//      // 4.2 动态创建tr
+//      var $tr = $('<tr></tr>');
+//      // 添加到tbody中
+//      // 4.4 把新增行添加到tbody中
+//      $('#j_tb').append($tr);
+//
+//      $tr.append('<td>'+ kc +'</td>');
+//      $tr.append('<td>'+ xy +'</td>');
+//      $tr.append('<td><a href="javascrip:;" class="get">delete</a></td>');
+//      // 4.3 给新增的删除按钮注册事件
+//      $tr.find('.get').click(function () {
+//        $(this).parent().parent().remove();
+//      });
+//
+//      // 4.5 添加完成，隐藏遮盖层和添加窗口
+//      $('#j_hideFormAdd').click(); // 触发click事件
+//      // 4.6 清除文本框
+//      $('#j_txtLesson').val('');
+//    });
+
+//    $(function () {
+////      先获取全部删除的按钮，并删除tbody内容
+//      $('#j_btnAddData1').click(function () {
+//        $('#j_tb').remove();
+//      })
+////      获得单个delete删除对应行
+//      $('.get').click(function () {
+//        $(this).parent().parent().remove();
+//      })
+////      获得添加数据按钮，显示遮罩层，并且显示表单
+//      $('#j_btnAddData').click(function () {
+//        $('#j_mask').show();
+//        $('#j_formAdd').show();
+//      })
+////      点击表单上的小叉叉关闭表单
+//      $('#j_hideFormAdd').click(function () {
+//        $('#j_mask').hide();
+//        $('#j_formAdd').hide();
+//      })
+////      点击添加按钮发生的事件
+//      $('#j_btnAdd').click(function () {
+////        先获取文本框内的内容
+////        课程
+//        var kc = $('#j_txtLesson').val()
+////        学院
+//        var xy = $('#j_txtBelSch').val();
+////        动态创建tr
+//        var $tr = $('<tr></tr>');
+////        把tr追加到tbody中
+//        $('#j_tb').append($tr);
+//
+//        $tr.append('<td>' + kc + '</td>');
+//        $tr.append('<td>' + xy + '</td>');
+//        $tr.append('<td><a href="javascrip:;" class="get">delete</a></td>')
+////        给新增的delete添加点击事件
+//        $tr.find('.get').click(function () {
+//          $(this).parent().parent().remove();
+//        })
+////        添加成功后自动关闭表单
+//        $('#j_hideFormAdd').click();
+////        成功后，自动清空输入框内的内容
+//        $('#j_txtLesson').val('');
+//      })
+//    })
+
+    $(function () {
+//      点击删除按钮，删除全部数据和单行
+        $('#j_btnAddData1').click(function () {
+          $('#j_tb').remove()
+        });
+      $('.get').click(function () {
+        $(this).parent().parent().remove();
+      });
+//      点击按钮，显示遮罩层和表单  然后再隐藏
+      $('#j_btnAddData').click(function () {
+        $('#j_mask').show();
+        $('#j_formAdd').show();
+      });
+//      点击小叉叉关掉
+      $('#j_hideFormAdd').click(function () {
+        $('#j_mask').hide();
+        $('#j_formAdd').hide();
+      });
+//      点击表单里的按钮，发生的事件
+      $('#j_btnAdd').click(function () {
+//        先获取表单里的内容
+//        课程
+        var kc = $('#j_txtLesson').val();
+//        学院
+        var xy = $('#j_txtBelSch').val();
+//        动态创建tr
+        var $arr = $('<tr></tr>')
+        $('#j_tb').append($arr);
+
+//        开始创建数据
+        $arr.append('<td>' + kc + '</td>');
+        $arr.append('<td>' + xy + '</td>');
+        $arr.append('<td> <a href="javascrip:;" class="get">delete</a></td>')
+
+//        给新添加的delete 添加事件
+        $arr.find('.get').click(function () {
+          $(this).parent().parent().remove();
+        })
+//        添加成功后自动关闭表单
+        $('#j_hideFormAdd').click();
+//        每次添加成功后，输入框自动清空
+        $('#j_txtLesson').val('');
+      })
+    })
+
+
+
+
+  </script>
+</body>
+
+</html>

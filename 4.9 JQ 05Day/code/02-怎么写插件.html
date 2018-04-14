@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    // 如何开发插件
+    // 静态方法  实例方法
+    
+    // 静态方法
+    // (function ($) {
+    //   $.add = function (a, b) {
+    //     return a + b;
+    //   };
+    // })(jQuery);
+    // console.log($.add(4, 6));
+
+    // 实例方法
+    (function ($) {
+      $.fn.addP = function (content) {
+        // this 调用时候的jQuery对象
+        this.append('<p>' + content + '</p>');
+      };
+    })(jQuery);
+
+
+    $('body').addP('我是动态创建的p标签');
+  </script>
+</body>
+</html>

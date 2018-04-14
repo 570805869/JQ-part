@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 300px;
+      margin: 100px auto 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 300px;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    tbody tr {
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <input type="checkbox" id="j_cbAll" />
+          </th>
+          <th>菜名</th>
+          <th>饭店</th>
+        </tr>
+      </thead>
+      <tbody id="j_tb">
+        <tr>
+          <td>
+            <input type="checkbox" />
+          </td>
+          <td>红烧肉</td>
+          <td>田老师</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" />
+          </td>
+          <td>西红柿鸡蛋</td>
+          <td>田老师</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" />
+          </td>
+          <td>红烧狮子头</td>
+          <td>田老师</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" />
+          </td>
+          <td>日式肥牛</td>
+          <td>田老师</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+
+//    $(function () {
+//      $('#j_cbAll').click(function () {
+//        $('#j_tb input[type=checkbox]').prop('checked', $(this).prop('checked'));
+//      });
+//
+//
+//      $('#j_tb input[type=checkbox]').click(function () {
+//        // 获取选中的checked的个数，是否和子的checkbox的个数相等
+//        var checkedLength = $('#j_tb input[type=checkbox]:checked').length;
+//        var length = $('#j_tb input[type=checkbox]').length;
+//
+//        $('#j_cbAll').prop('checked', checkedLength === length);
+//      });
+//    });
+
+    $(function(){
+      //获取所有的子的checkbox
+      var $allchk = $('#j_tb input[type = checkbox]');
+//      点击父亲的checkbox，让子的和他保持一致：
+      // 点击父亲注册事件
+      $('#j_cbAll').click(function(){
+        // 查看父亲当前的状态
+        var checked = $(this).prop('checked');
+        // 设置子的checkbox的选中状态
+        $allchk.prop('checked', checked);
+      });
+
+      // 给所有子的checkbox注册事件
+      $allchk.click(function () {
+//        先获取子checkbox的个数*
+        var chkCount = $allchk.length;
+//        选中的子checkbox的个数
+        var checkedCount = $('#j_tb input:checked').length;
+        $('#j_cbAll').prop('checked', chkCount === checkedCount);   //   选择器里面一定要加# 如果是id！！！！
+      });
+    });
+
+
+
+  </script>
+
+</body>
+
+</html>

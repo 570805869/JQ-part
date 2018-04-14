@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>乔布斯</li>
+    <li>马斯克</li>
+    <li>马云</li>
+    <li>马化腾</li>
+  </ul>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    // 一般情况下，设置属性的方法可以继续链式编程
+    //  获取属性值的方法 不可以链式编程
+
+    // end()方法 返回到最近一次改变元素之前
+    $('ul li')
+      .eq(0)   // 第一个li
+      .css('background-color', 'red')
+      .next()  // 第二个li
+      .css('background-color', 'yellow')
+      .next()  // 第三个li
+      .css('background-color', 'blue')
+      .end()   // 返回到最近一次改变元素之前
+      .end()
+      .css('color', 'white');
+
+
+    $('ul li')
+      .eq(0)
+      .text()  // 此时不能够进行链式编程  因为，text()返回的是字符串
+      .css('background-color', 'blue');
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0px;
+    }
+    #box1 {
+      margin: 50px;
+      padding: 20px;
+      position: relative;
+      width: 500px;
+      height: 500px;
+      background-color: red;
+    }
+
+    #box2 {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div id="box1">
+    <div id="box2"></div>
+  </div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    // 获取的是元素在页面中的位置  {top: 70, left: 70}
+    // console.log($('#box2').offset());
+
+
+    // 元素在定位父元素中的位置  如果没有定位父元素，获取的是页面的位置
+    //  {left: 20, top: 20}
+    // console.log($('#box2').position());
+
+    // offset 可以获取或设置
+    // position  只能获取，不能设置
+    // $('#box2').offset({
+    //   left: 500,
+    //   top: 500
+    // })
+
+
+    
+  </script>
+</body>
+</html>

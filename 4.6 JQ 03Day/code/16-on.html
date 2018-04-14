@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <span>hello1</span><br>
+    <span>hello2</span><br>
+    <p>ppp</p>
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    // 1 on
+    // $('#box').on('click', function () {
+    //   console.log('click');
+    // });
+
+    // 2 on
+    // $('#box').on('click mouseenter', function () {
+    //   console.log('on');
+    // });
+
+    // 3 on
+    // $('#box').on({
+    //   'click': function () {
+    //     console.log('click');
+    //   },
+    //   'mouseenter': function () {
+    //     console.log('mouseenter');
+    //   }
+    // });
+
+
+    // 4 on  事件委托
+    $('#box').on('click', 'span', function () {
+      console.log(this.innerText);
+    });
+
+  </script>
+</body>
+</html>

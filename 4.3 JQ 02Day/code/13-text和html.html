@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <span>清明时节雨纷纷</span>
+  </div>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    // 1. text()  获取或者设置
+    // 1.1 获取值  innerText / textContent
+    // 过滤标签
+    // console.log($('#box').text());
+
+    // 1.2 设置值  会对标签进行转义 &lt;p&gt;
+    // $('#box').text('<p>北京的第一场雨</p>');
+
+    // $('#box').text('');
+
+
+    // 2. html()  获取或者设置
+    // 2.1 获取值
+    // console.log($('#box').html());
+
+    // 2.2 设置值 如果内容中有html标签的话，会渲染
+    $('#box').html('<p>北京的第一场雨</p>');
+
+
+
+  </script>
+</body>
+</html>

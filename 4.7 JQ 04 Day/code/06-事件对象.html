@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      margin: 20px;
+      padding: 40px;
+      width: 200px;
+      height: 200px;
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+      <button id="btn">事件对象</button>
+
+
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    
+    // 事件委托
+    // $('#box').on('click', '#btn', function (e) {
+    //   console.dir(e);
+
+    //   // e.target  始终是触发事件的对象
+    //   // e.currentTarget   当前触发事件的对象
+    //   // e.delegateTarget  事件委托对象 （父元素）
+    // })
+
+
+    $('#btn').click(function (e) {
+      console.log('btn');
+    });
+
+    // $('#box').click(function (e) {
+    //   console.log('事件冒泡');
+    //   console.dir(e);
+
+    //   // 获取的是鼠标在盒子中的位置
+    //   // console.log(e.offsetX);
+    //   // console.log(e.offsetY);
+
+    //   // 鼠标在可视区域中的位置
+    //   // console.log(e.clientX);
+    //   // console.log(e.clientY);
+      
+
+    //   // 鼠标在页面中的位置
+    //   // console.log(e.pageX);
+    //   // console.log(e.pageY);
+    // });
+  </script>
+</body>
+</html>

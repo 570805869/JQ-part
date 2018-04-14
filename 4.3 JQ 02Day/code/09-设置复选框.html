@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn1">选中</button>
+  <button id="btn2">不选中</button>
+  <button id="btn3">设置下拉框</button>
+
+  <input type="checkbox" id="chk" checked="checked">
+
+  <select id="sel">
+    <option value="0">北京</option>
+    <option value="0">石家庄</option>
+    <option value="0">邯郸</option>
+  </select>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    // 1 选中
+    $('#btn1').click(function () {
+      // 设置
+      // $('#chk').attr('checked', true);
+      // $('#chk').prop('checked', true);
+
+      // 获取
+      // 获取的是checked属性的真实值
+      // console.log($('#chk').attr('checked'));
+
+      // 获取的是布尔类型的值
+      // console.log($('#chk').prop('checked'));
+    });
+
+    // 2 不选中
+    $('#btn2').click(function () {
+      // $('#chk').attr('checked', false);
+      // $('#chk').prop('checked', false);
+    });
+
+    // 3 设置下拉框中某一项选中
+    $('#btn3').click(function () {
+      $('#sel option:eq(1)').prop('selected', true);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>旋转木马轮播图</title>
+  <link rel="stylesheet" href="css/css.css" />
+
+</head>
+
+<body>
+  <div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+      <ul>
+        <li class="slide1">
+          <a href="#">
+            <img src="img/slidepic1.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slide2">
+          <a href="#">
+            <img src="img/slidepic2.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slide3">
+          <a href="#">
+            <img src="img/slidepic3.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slide4">
+          <a href="#">
+            <img src="img/slidepic4.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slide5">
+          <a href="#">
+            <img src="img/slidepic5.jpg" alt="" />
+          </a>
+        </li>
+      </ul>
+      <div class="arrow" id="arrow">
+        <a href="javascript:;" class="prev" id="arrLeft"></a>
+        <a href="javascript:;" class="next" id="arrRight"></a>
+      </div>
+    </div>
+  </div>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script src="js/index.js">
+//    $('#wrap').mouseover(function () {
+//      $('#arrow').css('opacity', 1);
+//    }).mouseout(function () {
+//      $('#arrow').css('opacity', 0);
+//    });
+//
+//    var classArr = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5'];
+//
+//    var $list = $('#slide > ul > li');
+//    // 下一张
+//    $('#arrRight').click(function () {
+//      var last = classArr.pop();
+//      classArr.unshift(last);
+//
+//      for (var i = 0; i < $list.length; i++) {
+//        // dom的方式
+//        // $list[i].className = classArr[i];
+//        $list.eq(i).removeClass().addClass(classArr[i]);
+//      }
+//    });
+//
+//    // 上一张
+//    $('#arrLeft').click(function () {
+//      // 取出数组第一项
+//      var first = classArr.shift();
+//      // 放到数组最后
+//      classArr.push(first);
+//
+//      for (var i = 0; i < $list.length; i++) {
+//        // dom的方式
+//        // $list[i].className = classArr[i];
+//
+//        $list.eq(i).removeClass().addClass(classArr[i]);
+//      }
+//    });
+  </script>
+
+</body>
+
+</html>

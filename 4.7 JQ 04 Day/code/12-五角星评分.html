@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .comment {
+      font-size: 40px;
+      color: red;
+    }
+
+    .comment li {
+      float: left;
+    }
+
+    ul {
+      list-style: none;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="comment">
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+    <li>☆</li>
+  </ul>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+//    var wjx_k = '☆';
+//    var wjx_s = '★';
+//    $('.comment li').hover(function () {
+//      // 1 鼠标放到li上
+//      // $(this)
+//      //   .text(wjx_s)
+//      //   .prevAll()   // 当前元素之前所有的兄弟元素
+//      //   .text(wjx_s)
+//      //   .end()      // 返回到最后一次改变元素之前   -- $(this)
+//      //   .nextAll()
+//      //   .text(wjx_k);
+//
+//      // 设置当前元素 和 当前元素之前的所有元素
+//      $(this)
+//        .text(wjx_s)
+//        .prevAll()
+//        .text(wjx_s);
+//
+//      // 当前元素 之后的所有元素
+//      $(this)
+//        .nextAll()
+//        .text(wjx_k);
+//    }, function () {
+//      // 2 鼠标离开
+//      // 设置所有li  空星
+//      $('.comment li').text(wjx_k);
+//      // 让有标记的li 和之前的所有li  实星
+//      $('li.now')
+//        .text(wjx_s)
+//        .prevAll()
+//        .text(wjx_s);
+//    })
+//
+//
+//    // 3 点击当前li
+//    $('.comment li').click(function () {
+//      // 记录下来当前点击的li
+//      // 给当前li 设置一个 作为标记用的类样式，其它li要去掉作为标记的类样式
+//      $(this)
+//        .addClass('now')
+//        .siblings()
+//        .removeClass('now');
+//    });
+
+//    var wjx_k = '☆';
+//    var wjx_s = '★';
+//    $('.comment li').hover(function () {
+//      $(this)
+//              .text(wjx_s)
+//              .prevAll()
+//              .text(wjx_s)
+//              .end()
+//              .nextAll()
+//              .text(wjx_k);
+//    }, function () {
+//      $('.comment li').text(wjx_k);
+//      $('li.now')
+//              .text(wjx_s)
+//              .prevAll()
+//              .text(wjx_s)
+//    })
+//    $('.comment li').click(function () {
+//      $(this)
+//              .addClass('now')
+//              .siblings()
+//              .removeClass('now')
+//    })
+
+      $(function () {
+          var wjx_k = '☆';
+          var wjx_s = '★';
+          $('.comment li').hover(function () {
+              $(this)
+                      .text(wjx_s)
+                      .prevAll()
+                      .text(wjx_s)
+                      .end()
+                      .nextAll()
+                      .text(wjx_k);
+          }, function () {
+              $('.comment li').text(wjx_k)
+              $('li.now')
+                      .text(wjx_s)
+                      .prevAll()
+                      .text(wjx_s)
+          });
+        $('.comment li').click(function () {
+            $(this)
+                    .addClass('now')
+                    .siblings()
+                    .removeClass('now')
+         })
+      })
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      height: 1500px;
+    }
+  </style>
+</head>
+<body>
+  
+  <script>
+    // 滚动事件
+    window.onscroll = function () {
+      // 当页面滚动的时候，获取页面滚动出去的距离
+      // console.log(document.body.scrollTop);
+      // console.log(document.documentElement.scrollTop);
+
+      var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      console.log(scrollTop);
+    };
+  </script>
+</body>
+</html>

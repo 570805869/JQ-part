@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn1">播放</button>
+  <audio src="mp3/1.mp3"></audio>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $('#btn1').click(function () {
+      // play方法 是audio对应的DOM对象的方法
+      $('audio').get(0).load();
+      $('audio').get(0).play();
+    });
+  </script>
+</body>
+</html>

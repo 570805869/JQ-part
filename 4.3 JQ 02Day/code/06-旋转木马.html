@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>旋转木马轮播图</title>
+  <link rel="stylesheet" href="css/css.css" />
+  <style>
+    .slide .slide1 {
+      width: 400px;
+      top: 20px;
+      left: 50px;
+      opacity: 0.2;
+      z-index: 2;
+    }
+
+    .slide .slide2 {
+      width: 600px;
+      top: 70px;
+      left: 0;
+      opacity: 0.8;
+      z-index: 3;
+    }
+
+    .slide .slide3 {
+      width: 800px;
+      top: 100px;
+      left: 200px;
+      opacity: 1;
+      z-index: 4;
+    }
+
+    .slide .slide4 {
+      width: 600px;
+      top: 70px;
+      left: 600px;
+      opacity: 0.8;
+      z-index: 3;
+    }
+
+    .slide .slide5 {
+      width: 400px;
+      top: 20px;
+      left: 750px;
+      opacity: .2;
+      z-index: 2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" id="wrap">
+    <div class="slide" id="slide">
+      <ul>
+        <li class="slide1">
+          <a href="#">
+            <img src="img/slidepic1.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slide2">
+          <a href="#">
+            <img src="img/slidepic2.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slide3">
+          <a href="#">
+            <img src="img/slidepic3.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slide4">
+          <a href="#">
+            <img src="img/slidepic4.jpg" alt="" />
+          </a>
+        </li>
+        <li class="slide5">
+          <a href="#">
+            <img src="img/slidepic5.jpg" alt="" />
+          </a>
+        </li>
+      </ul>
+      <div class="arrow" id="arrow">
+        <a href="javascript:;" class="prev" id="arrLeft"></a>
+        <a href="javascript:;" class="next" id="arrRight"></a>
+      </div>
+    </div>
+  </div>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+//    // 1 鼠标放到wrap上，箭头 透明度 1
+//    $('.wrap').mouseover(function () {
+//      $('#arrow').css('opacity', 1);
+//    });
+//    // 2 鼠标离开wrap，箭头 透明度 0
+//    $('.wrap').mouseout(function () {
+//      $('#arrow').css('opacity', 0);
+//    });
+//
+//    var arr = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5'];
+//    // 3 点击 下一张  把最后一个li的类样式，设置为第一个li的类样式，其它li的类样式依次类推
+//    $('#arrRight').click(function () {
+//      // 把数组中的最后一项，放到第一项
+//      var last = arr.pop();
+//      arr.unshift(last);
+//
+//      // 所有的li
+//      var $list = $('#slide li');
+//      // 遍历数组把数组中的每一项，设置为li的类样式
+//      for (var i = 0; i < arr.length; i++) {
+//        // $list[i]  DOM对象
+//        $($list[i]).removeClass().addClass(arr[i]);
+//      }
+//    });
+//    // 上一张
+//    // 把数组中的第一项，放到最后一项
+//    $('#arrLeft').click(function () {
+//      // 把数组中的第一项，放到最后一项
+//      var first = arr.shift();
+//      arr.push(first);
+//
+//      // 所有li
+//      var $list = $('#slide li');
+//      // 遍历数组，设置li的样式
+//      for (var i = 0; i < arr.length; i++) {
+//        // $list[i] DOM对象
+//        $list[i].className = arr[i];
+//      }
+//    });
+    $(function () {
+      $('#wrap').mouseenter(function () {
+        $('.arrow').css('opacity', 1);
+      })
+      $('#wrap').mouseleave(function () {
+        $('.arrow').css('opacity', 0);
+      });
+
+      var arr = ['slide1', 'slide2', 'slide3', 'slide4', 'slide5'];
+
+//      点击左箭头
+      $('#arrRight').click(function () {
+//        把数组的最后一张放到第一张
+        var last = arr.pop();
+        arr.unshift(last);
+//        获得所有的li
+        var $list = $('#slide li')
+//        遍历所有的li，给他们添加样式
+        for(var i = 0; i < arr.length; i++){
+          $($list[i]).removeClass().addClass(arr[i]);
+        }
+      })
+      $('#arrLeft').click(function () {
+//        把第一张放到最后一张
+        var first = arr.shift();
+        arr.push(first);
+//        获得所有li
+        var $list = $('#slide li')
+        for(var i = 0; i<arr.length; i++){
+          $($list[i]).removeClass().addClass(arr[i]);
+        }
+      })
+
+
+    })
+
+  </script>
+</body>
+
+</html>

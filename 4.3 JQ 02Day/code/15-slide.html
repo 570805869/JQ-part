@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn1">显示</button>
+  <button id="btn2">隐藏</button>
+  <button id="btn3">toggle</button>
+  
+  <div id="box"></div>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $('#btn1').click(function () {
+      // 不带参数，默认是normal(400)
+      // $('#box').slideDown();
+
+      // 带数值类型的参数，设置动画执行的毫秒值
+      // $('#box').slideDown(500);
+
+
+      // 传字符串  slow(600)、normal(400)、fast(200)
+      // $('#box').slideDown('fast');
+
+
+      // 第二个参数 动画执行完毕之后再执行
+      $('#box').slideDown(500, function () {
+        console.log('动画执行完毕');
+      });
+    });
+
+    $('#btn2').click(function () {
+      // $('#box').slideUp();
+
+      // $('#box').slideUp(500);
+
+      $('#box').slideUp('fast');
+      
+      
+    });
+    $('#btn3').click(function () {
+      // $('#box').slideToggle();
+      // $('#box').slideToggle(500);
+
+      $('#box').slideToggle('slow');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+    .show {
+      display: block;
+    }
+    .hide {
+      display: none;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    // 入口函数
+    $(function () {
+      // 1 找到按钮，注册点击事件
+      $('#btn').click(function () {
+        var $box = $('.box');
+        // 2 判断当前box的显示隐藏状态
+        if ($box.hasClass('hide')) {
+          // 如果隐藏的话
+          // 显示div  设置按钮上的文字为 隐藏
+          // 3 显示隐藏 box
+          $box.removeClass('hide').addClass('show');
+          // 4 设置按钮上的文字
+          $(this).text('隐藏')
+        } else {
+          $box.removeClass('show').addClass('hide');
+          $(this).text('显示');
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <button id="btn">隐藏</button>
+
+  <div class="box"></div>
+</body>
+</html>

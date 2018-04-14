@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <a href="http://www.baidu.com">百度</a>
+  <div id="box">
+    <p>ppppp</p>
+  </div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $('#box').click(function () {
+      console.log('box');
+    });
+
+    $('p').click(function (e) {
+      console.log('pppp');
+      // 阻止事件冒泡
+      // return false;
+
+      // 阻止事件冒泡
+      e.stopPropagation();
+    })
+
+    $('a').click(function (e) {
+      console.log('点击了a');
+
+      // 取消默认行为的执行
+      // return false;
+
+      // 取消默认行为的执行
+      e.preventDefault();
+    })
+  </script>
+</body>
+</html>

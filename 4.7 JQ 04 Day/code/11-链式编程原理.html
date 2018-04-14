@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }  
+
+    Person.prototype = {
+      constructor: Person,
+      setName: function (name) {
+        this.name = name;
+        return this;
+      },
+      setAge: function (age) {
+        this.age = age;
+        return this;
+      },
+      getName: function () {
+        return this.name;
+      },
+      getAge: function () {
+        return this.age;
+      }
+    }
+
+    // 工厂
+    function factory(name, age) {
+      return new Person(name, age)
+    }
+
+    // console.log( factory('zs', 18).setName('ls').setAge(20));
+
+
+    factory('zs', 18).getAge().setName('ls')
+  </script>
+</body>
+</html>

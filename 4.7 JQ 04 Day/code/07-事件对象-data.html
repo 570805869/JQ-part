@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      margin: 20px;
+      padding: 40px;
+      width: 200px;
+      height: 200px;
+      background: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+      <button id="btn">事件对象</button>
+
+
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    
+    // $('#btn').click('我是传递的数据', function (e) {
+    //   console.log('btn');
+    //   console.log(e.data);
+    // });
+
+
+    $('#box').on('click', '#btn', {name: 'zs', age: 18}, function (e) {
+      console.log(e.data);
+
+      console.dir(e);
+    });
+
+    
+  </script>
+</body>
+</html>

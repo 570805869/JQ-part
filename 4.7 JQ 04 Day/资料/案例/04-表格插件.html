@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #content table{
+      width: 400px;
+      border-collapse: collapse;
+    }
+    #content table th, #content table td{
+      border: 1px solid red;
+
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+
+  </div>
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jQuery.table.js"></script>
+  <script>
+    $(function () {
+      var arr = [
+          {name: 'zhangsan', age: 19, salary: 100},
+          {name: 'lisi', age: 20, salary: 110},
+          {name: 'wangwu', age: 21, salary: 120},
+          {name: 'zhaoliu', age: 20, salary: 110},
+          {name: 'zhouqi', age: 18, salary: 90}
+        ];
+      var ths = ['序号', '姓名', '性别', '薪资'];
+      $('#content').table(ths, arr);
+    });
+  </script>
+</body>
+</html>

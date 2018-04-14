@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav {
+      width: 900px;
+      height: 60px;
+      background-color: black;
+      margin: 0 auto;
+    }
+
+    .nav li {
+      width: 100px;
+      height: 60px;
+      /*border: 1px solid yellow;*/
+      float: left;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      font-size: 24px;
+      color: blue;
+      text-align: center;
+      line-height: 60px;
+      text-decoration: none;
+      z-index: 2;
+    }
+
+    .nav span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: yellow;
+      top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <ul>
+      <li>
+        <a href="javascript:void(0);">1</a>
+        <span></span>
+      </li>
+      <li>
+        <a href="javascript:void(0);">2</a>
+        <span></span>
+      </li>
+      <li>
+        <a href="javascript:void(0);">3</a>
+        <span></span>
+      </li>
+      <li>
+        <a href="javascript:void(0);">4</a>
+        <span></span>
+      </li>
+      <li>
+        <a href="javascript:void(0);">5</a>
+        <span></span>
+      </li>
+      <li>
+        <a href="javascript:void(0);">6</a>
+        <span></span>
+      </li>
+      <li>
+        <a href="javascript:void(0);">7</a>
+        <span></span>
+      </li>
+    </ul>
+
+    <div>
+      <img src="img/1.jpg" alt="">
+      <img src="img/2.jpg" alt="">
+      <img src="img/3.jpg" alt="">
+    </div>
+    <div>
+      <audio src="mp3/1.mp3"></audio>
+      <audio src="mp3/2.mp3"></audio>
+      <audio src="mp3/3.mp3"></audio>
+      <audio src="mp3/4.mp3"></audio>
+      <audio src="mp3/5.mp3"></audio>
+      <audio src="mp3/6.mp3"></audio>
+      <audio src="mp3/7.mp3"></audio>
+    </div>
+  </div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+//   // 1 鼠标放到 导航 执行动画 播放对应的mp3
+//   $('.nav li').on('mouseover', function () {
+//     // 让当前li 内部的span 执行动画
+//     $(this).children('span').stop().animate({
+//       top: 0
+//     })
+//     // 找到对应的audio  播放音乐
+//     var index = $(this).index();
+//     $('audio').get(index).load();
+//     $('audio').get(index).play();
+//
+//   });
+//  // 鼠标离开的时候。让span回到原位
+//   $('.nav li').on('mouseout', function () {
+//     // 让当前li 内部的span 执行动画
+//     $(this).children('span').stop().animate({
+//       top: 60
+//     })
+//   });
+//
+//
+//   // 键盘按下   -- mouseover
+//   $(document).on('keydown', function (e) {
+//      console.log(e.keyCode);
+//     //  1 -  49    7 - 55
+//     if (e.keyCode >= 49 && e.keyCode <= 55) {
+//       // 根据索引找到对应的li
+//       // 根据keyCode 计算 li的索引
+//       var index = e.keyCode - 49;
+//       // 通过代码触发 mouseover事件
+//       $('.nav li').eq(index).mouseover();
+//     }
+//   });
+//   // 键盘弹起   -- mouseout
+//   $(document).on('keyup', function (e) {
+//     if (e.keyCode >= 49 && e.keyCode <= 55) {
+//       var index = e.keyCode - 49;
+//       // 触发mouseout事件
+//       $('.nav li').eq(index).mouseout();
+//     }
+//   });
+    $(function () {
+//      找到li注册时间，让其动画执行，并找到对应的音乐
+      $('.nav li').on('mouseover', function () {
+        $(this).children('span').stop().animate({
+          top: 0
+        });
+//        找到对应的音乐
+        var index = $(this).index();
+        $('audio').get(index).load();
+        $('audio').get(index).play();
+      })
+      $('.nav li').on('mouseout', function () {
+        $(this).children('span').stop().animate({
+          top: 60
+        })
+      });
+//      键盘按下的时候 --mouseover
+      $(document).on('keydown', function (e) {
+//        console.log(e.keyCode)
+//        1 - 49   7 -- 55
+        if(e.keyCode >= 49 && e.keyCode <= 55){
+          var index = e.keyCode -49;
+          $('.nav li').eq(index).mouseover();
+        }
+      });
+      $(document).on('keyup', function (e) {
+        if(e.keyCode >= 44 && e.keyCode <= 55){
+          var index = e.keyCode - 49;
+          $('.nav li').eq(index).mouseout();
+        }
+      });
+
+
+
+//      键盘弹起的时候 --mouseout
+
+    })
+
+
+  </script>
+</body>
+
+</html>

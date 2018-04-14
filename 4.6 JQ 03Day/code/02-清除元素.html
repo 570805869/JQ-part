@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">清空</button>
+  <div id="box">
+    <ul>
+      <li>hello</li>
+      <li>hello</li>
+    </ul>
+  </div>
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $('#btn').click(function () {
+
+      // 清空，元素本身还在
+      // $('#box').empty();
+
+      // innerHTML = ''; 可能会有内存泄漏，无法清除元素的事件处理函数
+
+      // 没有内存泄漏的问题
+      // $('#box').html('');
+
+      // 移除  自杀
+      $('#box').remove();
+    });
+  </script>
+</body>
+</html>

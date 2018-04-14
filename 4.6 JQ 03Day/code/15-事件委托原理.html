@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="mv">
+    <li>西施</li>
+    <li>貂蝉</li>
+    <li>凤姐</li>
+
+
+  </ul>
+
+  <script>
+    // 事件委托 --> 事件冒泡
+
+    // 1 事件委托  本来该给所有li注册事件，现在只需要给ul注册事件
+    // 2 动态创建的元素也会具有事件
+    var mv = document.getElementById('mv');
+    mv.onclick = function (e) { 
+      // console.dir(e.target);
+      // 判断触发事件的对象 是否是li
+      if (e.target.tagName.toLowerCase() === 'li') {
+        console.log(e.target.innerText);
+      }
+    };
+  </script>
+</body>
+</html>

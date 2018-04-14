@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div id="box">
+
+</div>
+
+<script>
+    // 表头数据
+    var head = ['序号', '姓名', '年龄', '薪资'];
+    // 数据行数据
+    var data = [
+        { name: 'zhangsan', age: 19, salary: 100 },
+        { name: 'lisi', age: 20, salary: 110 },
+        { name: 'wangwu', age: 21, salary: 120 },
+        { name: 'zhaoliu', age: 20, salary: 110 },
+        { name: 'zhouqi', age: 18, salary: 90 }
+    ];
+
+    // 动态生成表格
+    // 0 表格
+    var arr = [];
+    arr.push('<table>');
+    // 1 表头
+    arr.push('<thead>');
+    arr.push('<tr>');
+    // 循环表头数据
+    $.each(head, function (index, item) {
+        arr.push('<th>'+ item +'</th>');
+    });
+
+    arr.push('</tr>');
+    arr.push('</thead>');
+    // 2 数据行
+    arr.push('<tbody>');
+    // 遍历数据行数据
+    $.each(data, function (index, item) {
+        arr.push('<tr>');
+        // 序号
+        arr.push('<td>' + (index + 1) + '</td>');
+        // 其它列
+        $.each(item, function (key, value) {
+            arr.push('<td>'+  value  +'</td>')
+        });
+        arr.push('</tr>');
+    });
+    arr.push('</tbody>');
+
+    arr.push('</table>');
+    // 把动态创建的表格放到容器中
+    $('#box').append(arr.join(''));
+
+</script>
+
+</body>
+</html>

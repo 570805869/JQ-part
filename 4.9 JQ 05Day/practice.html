@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // 如何开发插件
+    // 静态方法  实例方法
+
+    // 静态方法
+    // (function ($) {
+    //   $.add = function (a, b) {
+    //     return a + b;
+    //   };
+    // })(jQuery);
+    // console.log($.add(4, 6));
+
+    // 实例方法
+    (function ($) {
+        $.fn.addP = function (content) {
+// this 调用时候的jQuery对象
+            this.append('<p>' + content + '</p>');
+        };
+    })(jQuery);
+
+
+    $('body').addP('我是动态创建的p标签');
+
+// 如何开发插件
+// 静态方法  实例方法
+
+// 静态方法
+// (function ($) {
+//   $.add = function (a, b) {
+//     return a + b;
+//   };
+// })(jQuery);
+// console.log($.add(4, 6));
+
+// 实例方法
+    (function ($) {
+        $.fn.addP = function (content) {
+// this 调用时候的jQuery对象
+            this.append('<p>' + content + '</p>');
+        };
+    })(jQuery);
+
+
+    $('body').addP('我是动态创建的p标签');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/tab.css" type="text/css">
+</head>
+<body>
+<div class="wrapper">
+  <ul class="tab">
+    <li class="tab-item active">国际大牌<span>◆</span></li>
+    <li class="tab-item">国妆名牌<span>◆</span></li>
+    <li class="tab-item">清洁用品<span>◆</span></li>
+    <li class="tab-item">男士精品</li>
+  </ul>
+  <div class="product">
+    <div class="main selected">
+      <a href="###"><img src="imgs/guojidapai.jpg" alt=""/></a>
+    </div>
+    <div class="main">
+      <a href="###"><img src="imgs/guozhuangmingpin.jpg" alt=""/></a>
+    </div>
+    <div class="main">
+      <a href="###"><img src="imgs/qingjieyongpin.jpg" alt=""/></a>
+    </div>
+    <div class="main">
+      <a href="###"><img src="imgs/nanshijingpin.jpg" alt=""/></a>
+    </div>
+  </div>
+</div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    $('.tab .tab-item').mouseenter(function () {
+      // 让当前标题高亮显示，其它标题取消高亮显示
+      $(this).addClass('active').siblings().removeClass('active');
+      // 找到当前标题的索引
+      var index = $(this).index();
+      // 找到对应的详细内容，显示。 其它详细内容隐藏
+      $('.product .main').eq(index).addClass('selected').siblings().removeClass('selected');
+    });
+  </script>
+</body>
+</html>

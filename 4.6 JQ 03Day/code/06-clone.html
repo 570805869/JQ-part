@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">clone</button>
+  <div id="box1">
+    <ul>
+      <li>张三</li>
+      <li>李四</li>
+    </ul>
+  </div>
+  <div id="box2">
+
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    // 给box1中的li注册点击事件
+    $('#box1 li').click(function () {
+      console.log($(this).text());
+    });
+
+    //  点击按钮把box1中的内容复制到box2中
+    $('#btn').click(function () {
+
+      // $('#box1').clone()  克隆了整个box1 没有复制事件
+      // $('#box2').append($('#box1').clone());
+
+      // 克隆子节点
+      // $('#box2').append($('#box1').children().clone());
+
+
+      // clone(true) 复制事件 
+      $('#box2').append($('#box1').children().clone(true));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: coral;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">解绑事件</button>
+  <div id="box">
+    <span>111</span>
+    <span>222</span>
+    <p>ppp</p>
+  </div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+
+    // 注册事件委托
+    $('#box').on('click', 'span', function () {
+      console.log($(this).text());
+    });
+
+    $('#box').on('mouseover', 'span', function () {
+      console.log('mouseover');
+    });
+
+    // 
+    $('#btn').click(function () {
+      // 解绑事件委托
+      // $('#box').undelegate('click');
+      // $('#box').undelegate();
+
+
+      // 
+      // $('#box').off('click');
+      $('#box').off();
+      
+    });
+  </script>
+</body>
+</html>

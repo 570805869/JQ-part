@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img src="" alt="">
+  <img src="" alt="">
+  <img src="" alt="">
+  <img src="" alt="">
+
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+
+    // 1 设置多个属性
+    $('img').attr({
+      src: 'img/1.jpg',
+      alt: '测试的图片',
+      title: 'img标签的attr属性测试',
+      myIndex: 0
+    });
+
+    // 2 获取属性  - 只会获取到第一个元素的属性的值
+    var title = $('img').attr('title');
+    console.log(title);
+
+    // 3 移除属性
+    $('img').removeAttr('title');
+  </script>
+</body>
+</html>

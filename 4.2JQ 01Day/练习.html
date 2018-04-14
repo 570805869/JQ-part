@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+
+        /*div {*/
+        /*width: 300px;*/
+        /*height: 100px;*/
+        /*background-color: lightseagreen;*/
+        /*margin-top: 10px;*/
+        /*}*/
+
+        /*p {*/
+        /*width: 200px;*/
+        /*width: 300px;*/
+        /*background-color: lightslategrey;*/
+        /*}*/
+
+        .b_box {
+            width: 400px;
+            height: 300px;
+            margin: 50px auto;
+            /*border: 1px solid seagreen;*/
+        }
+
+        .b_box .tit {
+            width: 400px;
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        .b_box .cont {
+            width: 400px;
+            height: 200px;
+            background-color: lightseagreen;
+            display: none;
+        }
+
+    </style>
+    <script src="jq/案例/jquery-1.12.4.js"></script>
+    <script>
+
+
+        //        jQuery(document).ready(function(){
+        //          console.log(jQuery('div'));
+        //        });
+        //        $(document).ready(function(){
+        //            console.log('页面加载完毕')
+        //        });
+        //        $(function(){
+        //            var $div = $('#box');   //(存放的是一个jq对象)
+        //        });
+        //        $(function(){
+        //            var $div = $('#box')
+        //            $div.text('hello')
+        //        })
+        //innerText 属于DOM对象
+        //JQ对象，不能访问DOM对象的属性和方法
+
+        //        jQuery对象和dom对象相互转换
+        //      1.DOM转JQ
+        //        $(function(){
+        //            var div = document.getElementById('box');   //jq中不能加#
+        //            var $div = $(div);
+        //            $div.text('hello')
+        //        });
+        //        //   2/jq转dom
+        //        var $divs = $('div');
+        //        console.dir($divs);
+        ////        1.通过索引
+        //        console.dir($divs[0]);
+        ////        2.通过jq对象的get
+        //        console.log($divs.get(0));
+
+        //        dom转jq
+
+        //        $(function(){
+        //            var div = document.getElementById('div');
+        //            console.log(div);
+        //            var $div = $(div);
+        //            console.log($div);
+        //        });
+
+        //        jq转dom
+
+        //                $(function(){               //   jq转dom时要在方法里
+        //                    var $div = $('div');
+        //                    console.dir($div);
+        //        //        1.通过索引
+        //                    console.dir($div[0]);
+        //        //        2.通过jq的对象
+        //                    console.dir($div.get(0));
+        //                })
+
+        //        熟悉开关灯案例其中 的相互转换
+
+        ////        jq 转 dom
+        //        $(function(){
+        //            var btn1 = document.getElementById('btn1');
+        //            var $btn1 = $(btn1);
+        //            $btn1.click(function(){            //错误方式 $btn1.click = funcutionvar $body = $(document.body);
+        //                var $body = $(document.body);
+        //                $body.css('backgroundColor', ' white');
+        //            });
+        //
+        ////        dom转jq
+        //            var $btn2 = $('#btn2');
+        //            var btn = $btn2[0];
+        //            btn.onclick = function(){
+        //                document.body.style.backgroundColor = 'black';
+        //            }
+        //        });
+
+        //        //        jq转dom
+        //        $(function () {
+        ////            dom转jq
+        //
+        //
+        ////            jq转dom
+        //        })
+
+        //        练习
+
+        //        $(function(){
+        //            $('div').css('width',200);
+        //            $('#bbox').css('backgroundColor', 'pink');
+        //            $('.sbox').css('width', 500);
+        //            console.log($('.sbox').css('width'));
+        //            $('.sbox p').css('height', 30)
+        //
+        //            var $btn1 = $('#btn1');
+        //            var btn1 = $btn1[0];
+        //            btn1.onclick = function(){
+        //                document.body.style.backgroundColor = 'yellow';
+        //            }
+        //        })
+
+        //        $(function(){
+        ////            $('#box #heros li:odd').css('backgroundColor','pink');
+        ////            $('#box>#heros li:even').css('backgroundColor','lightblue');
+        //            $('#box>#heros li:lt(2)').css('backgroundColor', 'lightblue');
+        //        })
+
+                $(function(){
+                    $('.b_box ').mouseover(function(){
+                        $(this).children('.cont').show();
+                    });
+                    $('.b_box').mouseleave(function(){
+                       $(this).children('.cont').hide();
+                    })
+
+                });
+
+
+    </script>
+</head>
+<body>
+<!--<div id="box"></div>-->
+<!--<div></div>-->
+<!--<div class="sbox">-->
+<!--<p>-->
+<!--<button id="btn1"></button>-->
+<!--</p>-->
+<!--</div>-->
+<!--<div id="bbox"></div>-->
+<!--<div></div>-->
+<!--<div id="box">-->
+<!--<ul id="heros">-->
+<!--<li>乔布斯</li>-->
+<!--<li>545646546</li>-->
+<!--<li>98456489456</li>-->
+<!--<li>5626585</li>-->
+<!--<li>8dsfsdrfes4168</li>-->
+<!--<li>98456489456</li>-->
+<!--<li>98456489456</li>-->
+<!--<li>98456489456</li>-->
+<!--<li>98456489456</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<div class="b_box">
+    <div class="tit"></div>
+    <div class="cont"></div>
+</div>
+
+
+</body>
+</html>

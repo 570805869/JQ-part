@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      #container table {
+        border: 1px solid black;
+        width: 500px;
+        border-collapse: collapse;
+      }
+  
+      #container table th,
+      #container table td {
+        border: 1px solid black;
+      }
+  
+      #container table th {
+        height: 50px;
+        background-color: lightblue;
+      }
+    </style>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script src="./jquery-1.12.4.js"></script>
+  <script src="./jquery.table.js"></script>
+  <script>
+//    var head = ['序号', '姓名', '性别', '成绩'];
+//
+//    var data = [
+//      {name: 'zs', sex: '男', score: 100},
+//      {name: 'xinnian', sex: '男', score: 80},
+//      {name: '小仙女', sex: '女', score: 100},
+//      {name: '范闯', sex: '未知', score: 90}
+//    ];
+//
+//    $('#container').table(head, data);
+
+      var head = ['今天', '明天', '后天','大后天'];
+      var data = [
+          {today:'4.9',sex:'4.10', score:'4.11' }
+      ];
+      $('#container').table(head, data);
+
+
+  </script>
+</body>
+</html>

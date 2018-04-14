@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="box">
+    <span>hello1</span><br>
+    <span>hello2</span>
+    
+    
+  </div>
+  <script src="./jquery-1.12.4.js"></script>
+  <script>
+    // 1 简单的方式注册事件  click  mouseover
+    // $('#box').click(function () {
+    //   console.log('click');
+    // }).mouseover(function () {
+    //   console.log('mouseover');
+    // });
+    // $('#box').mouseover(function () {
+      
+    // });
+
+
+    // 2 bind()
+    // $('#box').bind('click', function () {
+    //   console.log('bind click');
+    // });
+
+    // $('#box').bind('click mouseover', function () {
+    //   console.log('bind');
+    // });
+
+    // $('#box').bind({
+    //   'click': function () {
+    //     console.log('click');
+    //   },
+    //   'mouseover': function () {
+    //     console.log('mouseover');
+    //   }
+    // })
+
+
+    // 3 事件委托  delegate
+    // 1 本来该给所有的子元素注册事件，现在只需要给父元素注册事件
+    // 2 动态创建的元素也具有事件
+    $('#box').delegate('span', 'click', function () {
+      // 此处的this，真正触发事件的元素
+      console.log($(this).text());
+    });
+
+  </script>
+</body>
+</html>

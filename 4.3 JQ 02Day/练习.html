@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .hide{
+            /*display: none;*/
+        }
+        /*.show{*/
+            /*display: block;*/
+        /*}*/
+    </style>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+//        获得元素，并注册点击事件
+//        $(function () {
+//            $('#btn').click(function () {
+////                找到元素，判断是它的显示状态
+//                var $box = $('.box');
+//////                如果有，就隐藏
+////                if($box.hasClass('hide')){
+////                    $box.removeClass('hide').addClass('show');
+//////                    改变文字
+////                    $(this).text('隐藏')
+////                }else{
+////                    $box.removeClass('show').addClass('hide');
+////                    $(this).text('显示')
+////                }
+//                if ($box.hasClass('hide')) {
+//                    $(this).text('隐藏');
+//                } else {
+//                    $(this).text('显示');
+//                }
+//                $box.toggleClass('hide');
+//            })
+//        })
+    $('.box').animate()
+
+
+
+    </script>
+</head>
+<body>
+<button id="btn">隐藏</button>
+<div class="box"></div>
+</body>
+</html>

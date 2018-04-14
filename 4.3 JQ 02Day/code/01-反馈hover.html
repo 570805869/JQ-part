@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+    }
+  </style>
+  <script src="jquery-1.12.4.js"></script>
+  <script>
+    $(function () {
+      $('div').hover(function () {
+        // mouseover 要执行的函数
+        console.log('mouseover');
+      }, function () {
+        // mouseout 要执行的函数
+        console.log('mouseout');
+      });
+
+      // 相当于
+      $('div').mouseover(function () {
+        
+      });
+
+      $('div').mouseout(function () {
+        
+      });
+    });
+  </script>
+</head>
+<body>
+  <div>
+
+  </div>
+</body>
+</html>

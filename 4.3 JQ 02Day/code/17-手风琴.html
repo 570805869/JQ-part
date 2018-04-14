@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    ul {
+      list-style: none;
+      width: 1300px;
+    }
+    
+    #box {
+      width: 1200px;
+      height: 400px;
+      border: 2px solid red;
+      margin: 100px auto;
+    }
+    
+    #box li {
+      width: 240px;
+      height: 400px;
+      /*border: 1px solid #000;*/
+      float: left;
+    }
+  
+  </style>
+</head>
+<body>
+<div id="box">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+  // 模拟服务器给我的数据
+  var arr = ['fq1.jpg', 'fq2.jpg', 'fq3.jpg', 'fq4.jpg', 'fq5.jpg'];
+
+
+  // 1  设置li的背景图片
+  // 所有的li
+  var $list = $('#box li');
+  arr.forEach(function (item, index) {
+    // 每一个li， 设置每一个li的背景图片
+    $($list[index]).css('background-image', 'url(img/'+ item +')');
+  });
+
+  // 2 注册li的mouseover事件
+  $list.mouseover(function () {
+    // 2.1 当前li 宽度 800  其它兄弟li 宽度 100
+    $(this)
+      .animate({'width': 800}, 800)
+      .siblings()
+      .animate({'width': 100}, 800);
+  });
+
+  // 3 注册li的mouseout  所有li 宽度240
+  $list.mouseout(function () {
+    $list.animate({'width': 240}, 800);
+  });
+</script>
+</body>
+</html>
